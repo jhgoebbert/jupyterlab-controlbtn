@@ -13,20 +13,20 @@ import '@jupyterlab/application/style/buttons.css';
 import '../style/index.css';
 
 const extension: JupyterFrontEndPlugin<void> = {
-  id: 'jupyterlab-logout:plugin',
+  id: 'jupyterlab-controlbtn:plugin',
   autoStart: true,
   requires: [IRouter, ITopBar],
   activate: async (app: JupyterFrontEnd, router: IRouter, topBar: ITopBar) => {
-    const logout = document.createElement('a');
-    logout.id = 'control';
-    logout.innerHTML = 'Control Panel';
-    control.addEventListener('click', function () {
+    const controlbtn = document.createElement('a');
+    controlbtn.id = 'control';
+    controlbtn.innerHTML = 'Control Panel';
+    controlbtn.addEventListener('click', function () {
       window.open('/home', '_blank');
     });
 
-    const widget = new Widget({ node: logout });
+    const widget = new Widget({ node: controlbtn });
     widget.addClass('jp-Button-flat');
-    topBar.addItem('logout-button', widget);
+    topBar.addItem('controlbtn-button', widget);
   }
 };
 
